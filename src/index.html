@@ -9,5 +9,60 @@
 </head>
 <body>
 
+<div class="d-flex" id="wrapper">
+  <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">Todo </div>
+    <div class="list-group list-group-flush">
+      <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+
+    </div>
+  </div>
+
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <div class="jumbotron mt-2">
+        <form class="form-inline">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="addProject" class="sr-only">Password</label>
+            <input type="text" class="form-control" id="addProject" placeholder="Project Name" required>
+          </div>
+          <button type="submit" class="btn btn-primary mb-2 add"> + Add</button>
+        </form>
+      </div>
+    </div>
+    <div class="container show">
+      <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="addProject" class="sr-only">Title</label>
+          <input type="text" class="form-control" id="Title" placeholder="Title" required>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="addProject" class="sr-only">Description</label>
+          <input type="text" class="form-control" id="description" placeholder="Description" required>
+        </div>
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="addProject" class="sr-only">Due date</label>
+          <input type="datetime-local" class="form-control" id="dueDate" required>
+        </div>
+        <select class="custom-select" id="priority">
+          <option value="1" selected>Hard</option>
+          <option value="2">Medium</option>
+          <option value="3">Low</option>
+        </select>
+        <div class="form-group mx-sm-3 mb-2">
+          <label for="addProject" class="sr-only">Notes</label>
+          <input type="text" class="form-control" id="notes" placeholder="Notes" required>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Done</label>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 add-todo"> + Add</button>
+      </form>
+    </div>
+  </div>
+
+</div>
+
 </body>
 </html>

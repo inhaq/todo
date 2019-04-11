@@ -4,8 +4,12 @@ body {
   overflow-x: hidden;
 }
 
-.show {
+.hide {
   display: none;
+}
+
+.col{
+  width: unset !important;
 }
 
 #sidebar-wrapper {

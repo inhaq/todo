@@ -13,7 +13,7 @@
   <div class="bg-light border-right" id="sidebar-wrapper">
     <div class="sidebar-heading">Todo </div>
     <div class="list-group list-group-flush">
-      <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+      <a href="#" id="dashboard" class="list-group-item list-group-item-action bg-light">Dashboard</a>
 
     </div>
   </div>
@@ -30,7 +30,7 @@
         </form>
       </div>
     </div>
-    <div class="container show">
+    <div class="container hide project">
       <form class="form-inline">
         <div class="form-group mx-sm-3 mb-2">
           <label for="addProject" class="sr-only">Title</label>
@@ -45,9 +45,9 @@
           <input type="datetime-local" class="form-control" id="dueDate" required>
         </div>
         <select class="custom-select" id="priority">
-          <option value="1" selected>Hard</option>
-          <option value="2">Medium</option>
-          <option value="3">Low</option>
+          <option value="Hard" selected>Hard</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
         </select>
         <div class="form-group mx-sm-3 mb-2">
           <label for="addProject" class="sr-only">Notes</label>
@@ -60,6 +60,7 @@
         <button type="submit" class="btn btn-primary mb-2 add-todo"> + Add</button>
       </form>
     </div>
+    <div class="tasks"></div>
   </div>
 
 </div>

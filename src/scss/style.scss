@@ -12,6 +12,11 @@ body {
   width: unset !important;
 }
 
+.opac{
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
 #sidebar-wrapper {
   min-height: 100vh;
   -webkit-transition: margin .25s ease-out;

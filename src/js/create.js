@@ -9,6 +9,13 @@ export default
         this._notes = notes,
         this._checklist = checklist
     }
-
+    toggleList() {this._checklist = !this._checklist}
+    edit(new_title,new_description,new_dueDate,new_priority,new_notes){
+      this._title = new_title;
+      this._description = new_description;
+      this._dueDate = new_dueDate;
+      this._priority = new_priority;
+      this._notes = new_notes;
+    }
   }
 

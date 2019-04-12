@@ -62,7 +62,48 @@
     </div>
     <div class="tasks"></div>
   </div>
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Todo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="form-inline">
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="addProject" class="sr-only">Title</label>
+            <input type="text" class="form-control" id="new-Title" placeholder="Title" required>
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="addProject" class="sr-only">Description</label>
+            <input type="text" class="form-control" id="new-description" placeholder="Description" required>
+          </div>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="addProject" class="sr-only">Due date</label>
+            <input type="datetime-local" class="form-control" id="new-dueDate" required>
+          </div>
+          <select class="custom-select" id="new-priority">
+            <option value="Hard" selected>Hard</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+          <div class="form-group mx-sm-3 mb-2">
+            <label for="addProject" class="sr-only">Notes</label>
+            <input type="text" class="form-control" id="new-notes" placeholder="Notes" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="update">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 
 </body>

@@ -1,3 +1,4 @@
+import {a} from '../index'
 const tasks = document.querySelector('.tasks');
 const task = document.createElement('table');
 task.classList.add('table');
@@ -17,6 +18,8 @@ const thead5 = thead.cloneNode(true);
 thead5.textContent = 'Notes';
 const thead6 = thead.cloneNode(true);
 thead6.textContent = 'Done';
+const thead7 = thead.cloneNode(true);
+thead7.textContent = 'Edit';
 const body = document.createElement('tbody');
 let count = 0;
 const sidebar = document.getElementById('sidebar-wrapper');
@@ -101,14 +104,14 @@ function resetForm() {
   done.checked = false;
 }
 
-function renderObjectTodo(todo) {
+function renderObjectTodo(todo,i) {
   const {
     _title,
     _description,
     _dueDate,
     _priority,
     _notes,
-    _done
+    _checklist
   } = todo;
   if (tasks.childElementCount === 0) {
     task.appendChild(head);
@@ -119,6 +122,7 @@ function renderObjectTodo(todo) {
     row.appendChild(thead4);
     row.appendChild(thead5);
     row.appendChild(thead6);
+    row.appendChild(thead7);
   }
   //body
 
@@ -134,13 +138,18 @@ function renderObjectTodo(todo) {
   const tdata5 = tdata.cloneNode(true);
   tdata5.textContent = _notes;
   const tdata6 = tdata.cloneNode(true);
-  tdata6.textContent = toText(_done);
+  const tdata7 = tdata.cloneNode(true);
+  tdata7.innerHTML = `<button class="btn btn-primary" data-name=${i} data-parent=${a} data-toggle="modal" data-target="#exampleModal">Edit</button>`
+  tdata6.innerHTML = toText(_checklist,i,rowBody);
+  // tdata6.dataset.name = i;
+  // tdata6.dataset.parent = a;
   rowBody.appendChild(tdata);
   rowBody.appendChild(tdata2);
   rowBody.appendChild(tdata3);
   rowBody.appendChild(tdata4);
   rowBody.appendChild(tdata5);
   rowBody.appendChild(tdata6);
+  rowBody.appendChild(tdata7);
   body.appendChild(rowBody);
   task.appendChild(body);
 
@@ -150,27 +159,40 @@ function renderObjectTodo(todo) {
 }
 
 function renderTodoTasks(project) {
+  console.log(a);
    const tableBody = document.querySelector('tbody');
   if (tasks.childElementCount !== 0) {
    tableBody.innerHTML = null;
   }
 
   for (let i = 0; i < project._todos.length; i++) {
-    renderObjectTodo(project._todos[i])
+    renderObjectTodo(project._todos[i],i)
   }
   if(tableBody && !(tableBody.hasChildNodes())){
-    console.log('hereeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
+    
      tableBody.innerHTML = "<div>No todos yet!</div>"
   }
 }
 
-
-function toText(a) {
-  if (a) {
-    return 'Done'
+function toText(done,i,rowBody) {
+  if (done) {
+     rowBody.classList.add('opac')
+    return `<span class='badge badge-success' data-name=${i} data-parent=${a}>Complete</span>`
   }
-  return 'Pending'
+   rowBody.classList.remove('opac')
+  return `<span class='badge badge-warning' data-name=${i} data-parent=${a}>Pending</span>`
 }
+
+  document.addEventListener('click',function(e){
+  if(e.target.innerHTML === 'Save changes'){
+  let newTitle = document.getElementById('new-Title').value;
+  let newDescription = document.getElementById('new-description').value;
+  let newdueDate = document.getElementById('new-dueDate').value;
+  let newPriority = document.getElementById('new-priority').value;
+  let newNotes = document.getElementById('new-notes').value;
+  return{newTitle,newDescription,newdueDate,newPriority,newNotes}
+  }
+  })
 export {
   renderProject,
   renderSingleProject,

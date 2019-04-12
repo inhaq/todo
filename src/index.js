@@ -24,11 +24,11 @@ document.addEventListener('click',function(e){
  
   if(e.target.parentNode.getAttribute('data-id')){
     console.log(projects);
+    const tableHead = document.querySelector('.thead-light');
     const tableBody = document.querySelector('tbody');
      a = e.target.parentNode.dataset.id;
     if (tableBody !== null) {
-      tableBody.innerHTML = null;
-     
+      // tableBody.classList.add('hide');
     }
     renderTodoTasks(projects[Number(a)]);
     renderSingleProject();

@@ -40,14 +40,12 @@ function renderProjectsOnLoad(projects) {
     topDiv.appendChild(newProj);
     sidebar.appendChild(topDiv);
   }
-
 }
 
 function renderProject() {
 
   const addBtn = document.querySelector('.add');
   const addProjectField = document.getElementById('addProject');
-
 
   addBtn.addEventListener('click', function () {
     const topDiv = document.createElement('div');
@@ -79,12 +77,7 @@ function renderSingleProject() {
 }
 
 function addTodo() {
-
   const addTodo = document.querySelector('.add-todo');
-
-
-
-
   addTodo.addEventListener('click', collect);
   const collect = () => {
     let todo = {};
@@ -161,14 +154,13 @@ function renderTodoTasks(project) {
   if (tasks.childElementCount !== 0) {
    tableBody.innerHTML = null;
   }
- 
 
   for (let i = 0; i < project._todos.length; i++) {
     renderObjectTodo(project._todos[i])
   }
   if(tableBody && !(tableBody.hasChildNodes())){
     console.log('hereeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
-    head.innerHTML = null
+     tableBody.innerHTML = "<div>No todos yet!</div>"
   }
 }
 

@@ -7,7 +7,7 @@ import CreateTodo                                                 from './js/Tod
 import updateTodo                                                 from './js/Todo/updateTodo'
 import {renderProject, renderProjectsOnLoad, renderSingleProject} from "./js/Project/renderProject";
 import {addTodo, resetForm}                                       from "./js/Todo/addTodo";
-
+import modalUpdate                                              from "./js/Todo/modalUpdate";
 
 updateTodo();
 renderSingleProject();
@@ -27,6 +27,7 @@ document.addEventListener('click', function (e) {
     if (e.target.innerHTML === 'Edit' || e.target.innerHTML === 'Delete'){
       nameId = e.target.dataset.name;
       parentId = e.target.dataset.parent;
+      modalUpdate();
     }
     if (e.target.innerHTML === 'Pending' || e.target.innerHTML === 'Complete'){
       let name = Number(e.target.dataset.name);

@@ -4,8 +4,25 @@ body {
   overflow-x: hidden;
 }
 
-.show {
+.hide {
   display: none;
+}
+
+.col{
+  width: unset !important;
+}
+
+.opac{
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+a.bg-light:active {
+  background-color: #dae0e5 !important;
+}
+
+.w-70 {
+  width: 70% !important;
 }
 
 #sidebar-wrapper {
